@@ -1,0 +1,11 @@
+<h1><%= @author.name %>'s Show Page</h1>
+
+<p>Age: <%= @author.age %></p>
+
+<p>Edit <a href="/authors/<%= @author.id%>/edit"><%= @author.name %></a></p>
+
+<form action="/authors/<%= @author.id%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+
+  <input type="submit" value="Delete Author">
+</form>

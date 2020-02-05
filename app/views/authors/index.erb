@@ -1,7 +1,7 @@
 <ul>
 
   <% @authors.each do |author| %>
-    <li><%= author.name %></li>
+    <li><a href="/authors/<%= author.id %>"><%= author.name %></a></li>
   <% end %>
 
 </ul>
