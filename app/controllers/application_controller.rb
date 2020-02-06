@@ -11,4 +11,13 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  # sign up route
+
+  # login route
+  # shows a login form
+
+  # sessions create route
+
+  # logout route
+
 end

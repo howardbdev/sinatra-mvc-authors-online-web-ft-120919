@@ -1,0 +1,28 @@
+- Authors can sign up and log in
+  - we will always either have a logged in user (Author) or no one will be logged in
+- Authors can create their own articles
+- Anyone can read anyone's articles
+- Only the owner of an article can edit or delete that article
+
+What is Auth????????
+
+It's two things:
+
+  AUTHENTICATION - the user is who they say they are.  I need a unique identifier, most commonly email or username
+
+  AUTHORIZATION - once we know who the user is, are they allowed to be doing the thing they're trying to do
+
+
+Tools we need:
+
+- add username and password to the Author (which is our user model)
+- we don't want to store raw strings as passwords in the database
+  - we need encryption
+  - we will use the bcrypt gem!
+
+- Then we need the ability to allow someone to __sign up__
+- Then we need the ability to allow someone to __login__
+- Then we need the ability to allow someone to __logout__
+
+^^ the above probably should involve adding another controller
+- we will need to use a tool that comes from Rack & Sinatra - session 
