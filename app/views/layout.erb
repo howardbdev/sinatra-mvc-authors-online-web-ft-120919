@@ -5,10 +5,22 @@
     <title>Sinatra Authors...</title>
   </head>
   <body>
+    <div class="">
+      <h4>current_author: <%= current_author ? current_author.name : "no one logged in" %></h4>
+    </div>
   <nav>
     <ul>
+      <% if logged_in? %>
+      <li><form class="" action="/logout" method="post">
+        <input type="submit" name="" value="log out">
+      </form></li>
+
+      <% else %>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Sign up</a></li>
+
+      <% end %>
       <li><a href="/authors">View All Authors</a></li>
-      <li><a href="/authors/new">Create New Author</a></li>
     </ul>
   </nav>
     <%= yield %>
