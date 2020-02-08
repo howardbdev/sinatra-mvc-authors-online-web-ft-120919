@@ -2,10 +2,13 @@
 
 <p>Age: <%= @author.age %></p>
 
-<p>Edit <a href="/authors/<%= @author.id%>/edit"><%= @author.name %></a></p>
 
-<form action="/authors/<%= @author.id%>" method="post">
-  <input type="hidden" name="_method" value="delete">
+<% if current_author == @author %>
+  <p>Edit <a href="/authors/<%= @author.id%>/edit"><%= @author.name %></a></p>
 
-  <input type="submit" value="Delete Author">
-</form>
+  <form action="/authors/<%= @author.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+
+    <input type="submit" value="Delete Author">
+  </form>
+<% end %>
