@@ -11,16 +11,17 @@ class AuthorsController < ApplicationController
   end
 
   # authors new action
-  get '/authors/new' do
+  get '/signup' do
     erb :"/authors/new"
   end
 
   # authors create action
-  post '/authors' do
+  post '/signup' do
 
     author = Author.new(params["author"])
 
     if author.save
+      session[:author_id] = author.id
       redirect to "/authors"
     else
       @errors = author.errors.full_messages
@@ -30,7 +31,6 @@ class AuthorsController < ApplicationController
 
   # authors show action
   get '/authors/:id' do
-    raise params.inspect
     @author = Author.find_by_id(params[:id])
     erb :"/authors/show"
   end
@@ -38,7 +38,15 @@ class AuthorsController < ApplicationController
   # authors edit action
   get '/authors/:id/edit' do
     @author = Author.find_by_id(params[:id])
-    erb :"/authors/edit"
+    if @author == current_author
+      # show the form
+      erb :"/authors/edit"
+    else
+      # not authorized
+      # send somewhere else
+      # tell the user "get outta here"
+      redirect '/'
+    end
   end
 
   # authors update action
