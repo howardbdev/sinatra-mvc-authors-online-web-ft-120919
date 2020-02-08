@@ -7,5 +7,5 @@ end
 use Rack::MethodOverride
 
 use AuthorsController
-
+use SessionsController
 run ApplicationController
