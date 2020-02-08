@@ -25,4 +25,7 @@ Tools we need:
 - Then we need the ability to allow someone to __logout__
 
 ^^ the above probably should involve adding another controller
-- we will need to use a tool that comes from Rack & Sinatra - session 
+- we will need to use a tool that comes from Rack & Sinatra - session
+
+- the session hash (really an object) becomes available in the controllers
+- it persists throughout our use of any site that has session enabled
